@@ -1,5 +1,14 @@
 ## Setup & Run Tests
+### Prerequisites
 
+**Foundry toolchain**  
+   Install Forge, Anvil, Cast, etc:
+
+   ```bash
+   curl -L https://foundry.paradigm.xyz | bash
+   foundryup
+   ```
+Then:
 ```bash
 # 1. Clone
 git clone https://github.com/asendz/symphony-launchpad.git

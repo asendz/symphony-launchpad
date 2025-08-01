@@ -3,7 +3,7 @@
 ```bash
 # 1. Clone
 git clone https://github.com/asendz/symphony-launchpad.git
-cd launchpad-foundry
+cd symphony-launchpad/
 
 # 2. Install OZ@v4.9.3
 forge install \

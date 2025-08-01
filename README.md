@@ -1,5 +1,20 @@
-## How to run
-Install dependencies:
+## Setup & Run Tests
+
+```bash
+# 1. Clone
+git clone https://github.com/asendz/symphony-launchpad.git
+cd launchpad-foundry
+
+# 2. Install OZ@v4.9.3
+forge install \
+  openzeppelin/openzeppelin-contracts@v4.9.3 \
+  openzeppelin/openzeppelin-contracts-upgradeable@v4.9.3 \
+  --no-commit
+
+# 3. Build & test
+forge build
+forge test
+```
 
 
 ## Foundry

@@ -89,6 +89,7 @@ The original `setTaxParams` routine compared its *old* storage values (`buyTax`,
 *No ABI touch – Bonding keeps using existing signatures.*
 
 **Design choice note**
+
 When graduating tokens, we're burning a certain amount of tokens to ensure price continuity on Dragonswap. This amount of tokens could just as easily be sent to a protocol-owned address (e.g. a treasury or time-lock) instead of burn().
 Burning keeps math simple and guarantees no future sell-pressure, but redirecting them can be an option for treasury accrual. If sent to treasury, this would also preserve the original totalSupply of the token.
 
@@ -133,6 +134,7 @@ foundryup
 
 That drops the two CLI tools—`forge` and `cast`—into `~/.foundry/bin`.
 After that you can run the project tests straight away.
+
 ---
 
 ### 1 · `FRouter.sol` tests  (`FRouterTest` – 14 tests)

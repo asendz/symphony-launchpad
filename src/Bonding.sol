@@ -241,9 +241,6 @@ contract Bonding is
         // 2. create pair (VirtualPair via factory)
         address _pair = factory.createPair(address(token), assetToken);
 
-        // Exclude the pair from per‐tx cap so buys/graduation can't hit MaxTx 
-        token.excludeFromMaxTx(_pair);
-
         // Whitelist launchpad contracts to allow trading during bonding phase
         token.addToWhitelist(address(router));
         token.addToWhitelist(address(this)); // Bonding contract itself
@@ -565,6 +562,10 @@ contract Bonding is
         _token.tradingOnDragonswap = true;
 
         // 1. Pull liquidity from bonding pool and deposit into DragonSwap
+
+        // Exclude the pair from max-tx check so its transferTo() won't revert if pair holds > maxTx% * totalSupply
+        address pair = factory.getPair(tokenAddress, assetToken);
+        FERC20(tokenAddress).excludeFromMaxTx(pair);
 
         // Transfer assets from old pool to this contract
         (uint256 tokenAmount, uint256 assetAmount) = router.graduatePool(tokenAddress, assetToken); // Sends assetToken to Bonding contract

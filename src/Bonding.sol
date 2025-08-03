@@ -241,7 +241,7 @@ contract Bonding is
         // 2. create pair (VirtualPair via factory)
         address _pair = factory.createPair(address(token), assetToken);
 
-        // Exempt the pair from per‐tx cap so buys/graduation can't hit MaxTx 
+        // Exclude the pair from per‐tx cap so buys/graduation can't hit MaxTx 
         token.excludeFromMaxTx(_pair);
 
         // Whitelist launchpad contracts to allow trading during bonding phase

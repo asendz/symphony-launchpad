@@ -563,9 +563,8 @@ contract Bonding is
 
         // 1. Pull liquidity from bonding pool and deposit into DragonSwap
 
-        // Exclude the pair from max-tx check so its transferTo() won't revert if pair holds > maxTx% * totalSupply
-        address pair = factory.getPair(tokenAddress, assetToken);
-        FERC20(tokenAddress).excludeFromMaxTx(pair);
+        // remove maxTx limits post-grad
+        FERC20(tokenAddress).updateMaxTx(100);
 
         // Transfer assets from old pool to this contract
         (uint256 tokenAmount, uint256 assetAmount) = router.graduatePool(tokenAddress, assetToken); // Sends assetToken to Bonding contract
